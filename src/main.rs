@@ -1,5 +1,6 @@
 use rusalka::NoiseGenerator;
 
+/// Generating a scaled 3 x 10 x 30 volume of perlin noise.
 fn main() {
   
   let scale = 0.2;

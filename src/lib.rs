@@ -1,15 +1,14 @@
-/*
-  3D Perlin Noise Generator
 
-  Based on http://mrl.nyu.edu/~perlin/noise/
-
-  Adopting from alterebro/perlin-noise-3d
-  Which was adapted from runemadsen/rune.noise.js
-  Which was adapted from P5.js
-  Which was adapted from PApplet.java
-  which was adapted from toxi
-  which was adapted from the german demo group farbrausch as used in their demo "art": http://www.farb-rausch.de/fr010src.zip
-*/
+/// 3D Perlin Noise Generator
+///
+/// Based on http://mrl.nyu.edu/~perlin/noise/
+///
+/// Adopting from alterebro/perlin-noise-3d
+/// Which was adapted from runemadsen/rune.noise.js
+/// Which was adapted from P5.js
+/// Which was adapted from PApplet.java
+/// which was adapted from toxi
+/// which was adapted from the german demo group farbrausch as used in their demo "art": http://www.farb-rausch.de/fr010src.zip
 
 use std::f32::consts::PI;
 use rand::prelude::*;
@@ -35,7 +34,8 @@ pub struct NoiseGenerator {
 
 impl NoiseGenerator {
 
-  // The constructor for the noise generator builds the sine and cosine lookup tables.
+  /// The constructor builds the lookup tables and the random data field.
+  /// All of the heavy lifting is done here where the generator is built.
   pub fn new(seed: &str) -> Self {
     let precision: f32 = 0.5;
     let length: i32 = (360.0 / precision).floor() as i32;
@@ -60,7 +60,7 @@ impl NoiseGenerator {
     }
   }
 
-  // Get the perlin noise value at (x,y,z)
+  /// Get the perlin noise value at (x,y,z)
   pub fn get(&self, x:f32, y:f32, z:f32) -> f32 {
     let mut xi: i32 = x.floor() as i32;
     let mut yi: i32 = y.floor() as i32;
